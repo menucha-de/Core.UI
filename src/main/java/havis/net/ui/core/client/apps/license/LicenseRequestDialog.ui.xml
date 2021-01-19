@@ -1,0 +1,91 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:s="urn:import:havis.net.ui.shared.client.widgets">
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.core.resourcebundle.ResourceBundle" field="lres" />
+	<ui:with type="havis.net.ui.core.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:style>
+	.button {
+		margin: 0.25em 0;
+	}
+	
+	.button>button {
+		width: 20em;
+	}
+	
+	.clipboard {
+	}
+	
+	.www {
+	}
+	
+	.email>button {
+	}
+	
+	.dialog {
+		font-size: 1.5rem;
+	}
+	
+	.label {
+		margin: 0.25em 0;
+	}
+	
+	.footer {
+		margin-top: 1em;
+	}
+	
+	.header {
+		display: flex;
+	}
+	
+	.hiddenText {
+		height: 1px;
+		width: 1px;
+		border: 0;
+		padding: 0;
+		margin: 1px;
+	}
+	
+	.productTable {
+		margin-left: 1em;
+		margin-bottom: 1em;
+	}
+	
+	.productTable td:first-child {
+		width: 8em;
+		font-weight: bold;
+	}
+	
+	.productTable td:last-child {
+		font-style: italic;
+	}
+	
+	.explainText {
+		font-weight: bold;
+		margin-bottom: 1em;
+	}
+	
+	.content {
+		font-size: 1.3rem;
+	}
+	</ui:style>
+	<s:CommonEditorDialog ui:field="dialog" buttonCaption="Back" addStyleNames="{style.dialog}">
+		<g:FlowPanel ui:field="headerPanel" stylePrimaryName="{res.css.webuiEditorHeader} {style.header}">
+			<g:Label ui:field="titleLabel" addStyleNames="{res.css.webuiEditorTitle} {style.label}" />
+			<g:Image url="{lres.appLicenseBig.getSafeUri.asString}" />
+		</g:FlowPanel>
+		<g:HTMLPanel styleName="{style.content}">
+			<div class="{style.explainText}"><ui:text from="{i18n.contactSalesPerson}" /></div>
+			<table class="{style.productTable}">
+				<tr><td><ui:text from="{i18n.product}" /></td><td ui:field="product"></td></tr>
+			</table>
+			<div class="{style.explainText}"><ui:text from="{i18n.serialMica}" /></div>
+			<table class="{style.productTable}">
+				<tr><td><ui:text from="{i18n.sn}" /></td><td ui:field="sn"></td></tr>
+			</table>
+		</g:HTMLPanel>
+		<s:IconButton ui:field="toClipboard" text="{i18n.toClipboard}" addStyleNames="{style.button}" imageUrl="{lres.appLicenseCopy.getSafeUri.asString}"/>
+		<g:TextArea ui:field="emailText" styleName="{style.hiddenText}" />
+	</s:CommonEditorDialog>
+</ui:UiBinder> 

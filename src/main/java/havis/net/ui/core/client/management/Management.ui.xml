@@ -1,0 +1,32 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:a="urn:import:havis.net.ui.core.client.app"
+	xmlns:s="urn:import:havis.net.ui.shared.client" xmlns:shr="urn:import:havis.net.ui.shared.client.widgets">
+	<ui:with type="havis.net.ui.core.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	<ui:style>
+	.appsPanel {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-bottom: 1em;
+	}
+	
+	.drivers {
+		border-top: 1px solid lightgrey;
+	}
+	
+	</ui:style>
+	<g:HTMLPanel>
+		<shr:SettingsHeader mainSection="false" label="Settings" />
+		<g:FlowPanel ui:field="deviceAppsPanel" styleName="{style.appsPanel}">
+			<a:CoreButton ui:field="logButton" type="LOG" />
+		</g:FlowPanel>
+		<g:FlowPanel styleName="{res.css.settingsHeader} {style.drivers}">
+			<shr:HeaderButton iconSrc="{res.iconDrivers.getSafeUri.asString}" />
+			<g:Label text="Drivers"/>
+		</g:FlowPanel>
+		<g:FlowPanel ui:field="driverAppsPanel" styleName="{style.appsPanel}">
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

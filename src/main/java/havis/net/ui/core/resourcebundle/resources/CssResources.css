@@ -1,0 +1,364 @@
+@CHARSET "ISO-8859-1";
+
+@url CONTEXT_CLOSED contextClosed;
+@url CONTEXT_OPENED contextOpened;
+@url CONFIG_CLOSED configClosed;
+@url CONFIG_OPENED configOpened;
+@url CONFIG_UPLOAD configUpload;
+@url CONFIG_UPLOAD_DISABLED configUploadDisabled;
+@url CONFIG_DOWNLOAD configDownload;
+@url CONFIG_DOWNLOAD_DISABLED configDownloadDisabled;
+@url CONFIG_RESET configReset;
+@url CONFIG_RESET_DISABLED configResetDisabled;
+@url CONFIG_BACKUP configBackup;
+@url CONFIG_BACKUP_DISABLED configBackupDisabled;
+@url CONFIG_RESTORE configRestore;
+@url CONFIG_RESTORE_DISABLED configRestoreDisabled;
+@url CONFIG_DELETE configDelete;
+@url CONFIG_DELETE_DISABLED configDeleteDisabled;
+@url APP_INFO appInfo;
+@url APP_DELETE appDelete;
+@url APP_STARTED appStarted;
+@url APP_STOPPED appStopped;
+@url APP_LICENSE appLicense;
+@url EDITOR_CLOSE editorClose;
+@url ICON_DRIVERS iconDrivers;
+
+html {
+	color: #333;
+}
+
+.settingsHeader {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid lightgrey;
+	font-size: 1.5rem;
+}
+
+.button {
+	position: relative;
+	margin-top: 1em;
+}
+
+.button:hover>.contextButton {
+	opacity: 1;
+}
+
+.outer {
+	margin: 0 20px 15px 20px;
+	border-radius: 14px;
+	border: 1px solid #dbd4b7;
+	box-shadow: 0px 2px 0px #e3e3e3;
+	background: linear-gradient(rgba(255, 221, 84, 1), rgba(246, 205, 39, 1));
+	cursor: pointer;
+}
+
+.outer.small {
+	border-radius: 11px;
+	margin: 15px 10px 15px 0px;
+}
+.outer.grey {
+	background: rgba(210, 210, 210, 1) !important;
+}
+
+.outer.disabled {
+	border: 1px solid #d2d2d2;
+	background: rgba(255, 255, 255, 1) !important;
+}
+
+.inner.disabled:before {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border: 1px solid #d2d2d2;
+	border-radius: 4px;
+}
+
+.inner {
+	display: block;
+	position: relative;
+	margin: 10px;
+	box-shadow: 0px 2px 0px #e0b404;
+	border-radius: 5px;
+}
+
+.inner.small {
+	margin: 7px;
+}
+
+.inner.grey {
+	box-shadow: none;
+}
+
+.inner.disabled {
+	box-shadow: 0px 2px 0px #fff;
+	/*border: 1px solid #d2d2d2;*/
+	background: linear-gradient(rgba(254, 252, 243, 1),
+		rgba(237, 237, 237, 1));
+}
+
+.icon {
+	display: block;
+	border-radius: 4px;
+	border: 0px;
+	background: rgba(255, 204, 0, 1);
+	min-width: 178px;
+	min-height: 178px;
+}
+
+.icon.small {
+	min-width: 68px;
+	min-height: 68px;
+	width: 68px;
+	height: 68px;
+}
+
+.icon.grey {
+	background: rgba(160, 160, 160, 1);
+}
+
+.icon.disabled {
+	background: rgba(210, 210, 210, 1);
+}
+
+.icontitle {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.contextButton {
+	height: 32px;
+	width: 32px;
+	left: 196px;
+	top: -7px;
+	position: absolute;
+	background-image: CONTEXT_CLOSED;
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.contextButton.info {
+	background-image: APP_INFO;
+}
+
+.contextButton.active {
+	opacity: 1;
+	background-image: CONTEXT_OPENED;
+}
+
+.contextButton.small {
+	
+}
+
+.contextMenuPanel {
+	background-color: white;
+	border: 1px solid lightgrey;
+	border-radius: 14px;
+	box-shadow: 2px 2px 5px 0px lightgrey;
+	opacity: 0;
+	transition: opacity 0.3s;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.contextMenuPanel.active {
+	opacity: 1;
+}
+
+.contextMenu {
+	width: 198px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.contextMenu>li {
+	border-bottom: 1px solid lightgrey;
+	padding: 0.2em;
+	cursor: pointer;
+	font-size: 1.5em;
+}
+
+.contextMenu>li:last-child {
+	border-bottom: none;
+}
+
+.contextMenu>li.title {
+	padding-top: 0.5em;
+	font-size: 1.7em;
+	text-align: center;
+	cursor: auto;
+}
+
+.contextMenu>li.config {
+	font-weight: bold;
+	border-bottom: 1px solid lightgrey;
+}
+
+.contextMenu>li.config.closed {
+	border-bottom: 1px solid transparent;
+}
+
+.contextMenu>li.config.opened {
+	border-bottom: 1px dashed lightgrey;
+}
+
+.configMenu>li:last-child {
+	border-bottom: none;
+}
+
+.contextMenu>li>div {
+	line-height: 32px;
+	padding-left: 1.5em;
+	background-repeat: no-repeat;
+}
+
+.contextMenu>li>div.disabled {
+	color: graytext;
+}
+
+.contextMenu>li>div.info {
+	background-image: APP_INFO;
+}
+
+.contextMenu>li>div.delete {
+	background-image: APP_DELETE;
+}
+
+.contextMenu>li>div.started {
+	background-image: APP_STARTED;
+}
+
+.contextMenu>li>div.stopped {
+	background-image: APP_STOPPED;
+}
+
+.contextMenu>li>div.activate {
+	background-image: APP_LICENSE;
+}
+
+.contextMenu>li>div.uploadConfig {
+	background-image: CONFIG_UPLOAD;
+}
+
+.contextMenu>li>div.uploadConfig.disabled {
+	background-image: CONFIG_UPLOAD_DISABLED;
+}
+
+.contextMenu>li>div.downloadConfig {
+	background-image: CONFIG_DOWNLOAD;
+}
+
+.contextMenu>li>div.downloadConfig.disabled {
+	background-image: CONFIG_DOWNLOAD_DISABLED;
+}
+
+.contextMenu>li>div.resetConfig {
+	background-image: CONFIG_RESET;
+}
+
+.contextMenu>li>div.resetConfig.disabled {
+	background-image: CONFIG_RESET_DISABLED;
+}
+
+.contextMenu>li>div.backupConfig {
+	background-image: CONFIG_BACKUP;
+}
+
+.contextMenu>li>div.backupConfig.disabled {
+	background-image: CONFIG_BACKUP_DISABLED;
+}
+
+.contextMenu>li>div.restoreConfig {
+	background-image: CONFIG_RESTORE;
+}
+
+.contextMenu>li>div.restoreConfig.disabled {
+	background-image: CONFIG_RESTORE_DISABLED;
+}
+
+.contextMenu>li>div.deleteConfig {
+	background-image: CONFIG_DELETE;
+}
+
+.contextMenu>li>div.deleteConfig.disabled {
+	background-image: CONFIG_DELETE_DISABLED;
+}
+
+.configMenu {
+	transition: height 0.5s;
+	overflow: hidden;
+}
+
+.configMenu.active {
+	height: auto;
+}
+
+.configMenu>li>div {
+	padding-left: 2.5em;
+	background-position: 1em;
+}
+
+.contextMenu>li.opened>div {
+	background-image: CONFIG_OPENED;
+}
+
+.contextMenu>li.closed>div {
+	background-image: CONFIG_CLOSED;
+}
+
+.licenseWarning {
+	height: 32px;
+	width: 32px;
+	left: 10px;
+	top: -10px;
+	position: absolute;
+	background-image: APP_LICENSE;
+}
+/**************COPY OF WEBUI : webui-EditorBackground*******************/
+.infoHtmlBackground {
+	z-index: 2; /* changed z-index */
+	position: fixed; /* changed position */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.75);
+	overflow: auto;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.infoHtmlClose {
+	background-image: EDITOR_CLOSE;
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	right: 35px;
+	cursor: pointer;
+}
+
+.infoHtmlDialog {
+	position: relative;
+	margin: 5em auto 0;
+	max-width: 800px;
+	background: white;
+	padding: 1.5em;
+	border-radius: 1em;
+	box-shadow: 5px 5px 17px 0px rgba(0, 0, 0, 0.75);
+}
+
+.infoHtmlIframe {
+	display: block;
+	width: 100%;
+	border: none;
+}

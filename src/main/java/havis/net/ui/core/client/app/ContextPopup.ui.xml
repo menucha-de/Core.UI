@@ -1,0 +1,32 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:u="urn:import:havis.net.ui.shared.client.upload" xmlns:a="urn:import:havis.net.ui.core.client.app">
+	<ui:with type="havis.net.ui.core.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.core.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:style>
+	
+	</ui:style>
+	<g:HTMLPanel ui:field="contextMenuPanel" styleName="{res.css.contextMenuPanel}">
+		<ul ui:field="contextMenu" class="{res.css.contextMenu}">
+			<li ui:field="title" class="{res.css.title}" />
+			<li ui:field="toggleLi"><a:MenuEntry ui:field="toggle" /></li>
+			<li ui:field="deleteLi"><a:MenuEntry ui:field="delete" styleName="{res.css.delete}" text="{i18n.delete}"/></li>
+			<li><a:MenuEntry ui:field="info" styleName="{res.css.info}" text="{i18n.info}"/></li>
+			<li ui:field="activateItem"><a:MenuEntry ui:field="activate" styleName="{res.css.activate}" text="{i18n.activate}"/></li>
+			<li ui:field="config" class="{res.css.config} {res.css.closed}">
+				<g:Label ui:field="configLabel" text="{i18n.config}"/>
+			</li>
+		</ul>
+		<ul ui:field="configMenu" class="{res.css.contextMenu} {res.css.configMenu}">
+			<li><a:MenuEntry ui:field="exportConf" styleName="{res.css.downloadConfig}" text="{i18n.download}"/></li>
+			<li><a:MenuEntry ui:field="importConf" styleName="{res.css.uploadConfig}" text="{i18n.upload}"/></li>
+			<li ui:field="resetConfLi"><a:MenuEntry ui:field="resetConf" styleName="{res.css.resetConfig}" text="{i18n.reset}"/></li>
+			<li ui:field="backupConfLi"><a:MenuEntry ui:field="backupConf" styleName="{res.css.backupConfig}" text="{i18n.backup}"/></li>
+			<li ui:field="restoreConfLi"><a:MenuEntry ui:field="restoreConf" styleName="{res.css.restoreConfig}" text="{i18n.restore}"/></li>
+			<li ui:field="deleteConfLi"><a:MenuEntry ui:field="deleteConf" styleName="{res.css.deleteConfig}" text="{i18n.drop}"/></li>
+			<li ui:field="resetItem"><a:MenuEntry ui:field="reset" styleName="{res.css.activate}" text="{i18n.reset}"/></li>
+		</ul>
+		<u:MultipleFileUpload ui:field="upload" accept=".config" visible="false" />
+	</g:HTMLPanel>
+</ui:UiBinder> 

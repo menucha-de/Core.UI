@@ -1,0 +1,17 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with type="havis.net.ui.core.resourcebundle.ResourceBundle" field="res" />
+	<g:FocusPanel ui:field="buttonContainer">
+		<g:FlowPanel ui:field="button" styleName="{res.css.button}">
+			<g:FocusPanel ui:field="outer" styleName="{res.css.outer}">
+				<g:HTML ui:field="inner" styleName="{res.css.inner}">
+					<img ui:field="icon" class="{res.css.icon}" />
+				</g:HTML>
+			</g:FocusPanel>
+			<g:Label ui:field="contextButton" styleName="{res.css.contextButton}" />
+			<g:Label ui:field="label" styleName="{res.css.icontitle}" />
+			<g:Label ui:field="licenseWarningButton" styleName="{res.css.licenseWarning}" />
+		</g:FlowPanel>
+	</g:FocusPanel>
+</ui:UiBinder> 

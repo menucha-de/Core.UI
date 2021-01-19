@@ -1,0 +1,66 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder
+	xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:lm="urn:import:havis.net.ui.core.client.log.monitor"
+	xmlns:lc="urn:import:havis.net.ui.core.client.log.config"
+	xmlns:s="urn:import:havis.net.ui.shared.client"
+	xmlns:a="urn:import:havis.net.ui.core.client.app"
+	xmlns:l="urn:import:havis.net.ui.core.client.apps.license"
+	xmlns:u="urn:import:havis.net.ui.shared.client.upload"
+	xmlns:shr="urn:import:havis.net.ui.shared.client.widgets">
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.core.resourcebundle.ResourceBundle" field="resLocal" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:style>
+	.core-ui {
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+	
+	.configurations {
+		font-size: 1.5em;
+		overflow: auto;
+		-webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+	}
+	
+	.logmonitor {
+		font-size: 1.5em;
+		overflow: hidden;
+		position: fixed;
+		bottom: 0;
+		background-color: white;
+		width: 100%;
+	}
+	
+	.section {
+		border-bottom: 1px solid lightgrey;
+	}
+	
+	.label {
+		border-bottom: 1px solid lightgrey;
+		cursor: pointer;
+	}
+	
+	.buttonPanel {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-bottom: 2em;
+	}
+	
+	</ui:style>
+	<g:FlowPanel ui:field="container" addStyleNames="{style.core-ui}">
+		<g:FlowPanel ui:field="buttonPanel" styleName="{style.buttonPanel}">
+			<a:CoreButton ui:field="management" type="MANAGEMENT" />
+			<a:CoreButton ui:field="install" type="INSTALL" />
+		</g:FlowPanel>
+		<u:MultipleFileUpload ui:field="upload" visible="false" accept=".app" />
+	</g:FlowPanel>
+</ui:UiBinder> 

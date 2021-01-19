@@ -1,0 +1,44 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:l="urn:import:havis.net.ui.shared.client.list"
+	xmlns:m="urn:import:havis.net.ui.core.client.management" xmlns:s="urn:import:havis.net.ui.shared.client.widgets">
+	<ui:with type="havis.net.ui.core.resourcebundle.ResourceBundle" field="res" />
+	<ui:style>
+	.label {
+		font-size: 1.5em;
+	}
+	.configure-list {
+		padding-left: 0.5em;
+	}
+	
+	.configure-list colgroup > col:nth-child\(1\) {
+		width: 13em;
+	}
+	.configure-list colgroup > col:nth-child\(3\) {
+		width: 25em;
+	}
+	.configure-list colgroup > col:nth-child\(4\) {
+		width: 5em;
+	}
+	
+	.configure-list > div > table:first-child {
+		border-bottom: 1px solid lightgrey;
+	}
+
+
+	.configure-list > div > table:first-child td {
+		font-weight: bold;
+		line-height: 2em;
+	}
+
+	.configure-list > div table td:nth-child\(3\) {
+		text-align: center;
+	}
+	
+	</ui:style>
+	<g:HTMLPanel>
+		<s:SettingsHeader iconSrc="{res.iconLog.getSafeUri.asString}" label="Log"/>
+		<l:WidgetList ui:field="configureList" sortable="false" addStyleNames="{style.configure-list}" />
+	</g:HTMLPanel>
+</ui:UiBinder> 
